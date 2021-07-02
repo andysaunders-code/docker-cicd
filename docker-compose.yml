@@ -23,9 +23,9 @@ services:
     volumes: ["./html:/var/www/html"]
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: password
-      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: ${DBUSER}
+      WORDPRESS_DB_PASSWORD: ${DBPASS}
+      WORDPRESS_DB_NAME: ${DB}
     networks:
       - wp
 
