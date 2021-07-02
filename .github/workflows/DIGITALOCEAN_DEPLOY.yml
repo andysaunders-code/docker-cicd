@@ -13,6 +13,14 @@ jobs:
       - uses: actions/checkout@main 
       - name: Create .env 
         run: echo 'PORT=${{ secrets.PORT }}' > .env
+      - name: Add db 
+        run: echo 'DB=${{ secrets.DB }}' > .env
+      - name: Add user 
+        run: echo 'DBUSER=${{ secrets.DBUSER }}' > .env
+      - name: Add password 
+        run: echo 'DBPASS=${{ secrets.DBPASS }}' > .env
+      - name: Add root password
+        run: echo 'DBROOTPASS=${{ secrets.DBROOTPASS }}' > .env
 
       - name: Run build 
         run: docker-compose up -d
