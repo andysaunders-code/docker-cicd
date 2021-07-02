@@ -22,7 +22,7 @@ services:
     image: wordpress:latest
     volumes: ["./html:/var/www/html"]
     environment:
-      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_HOST: ${DB}:3306
       WORDPRESS_DB_USER: ${DBUSER}
       WORDPRESS_DB_PASSWORD: ${DBPASS}
       WORDPRESS_DB_NAME: ${DB}
