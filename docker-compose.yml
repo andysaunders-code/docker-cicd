@@ -7,10 +7,10 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${DBROOTPASS}
-      MYSQL_DATABASE: ${DB}
-      MYSQL_USER: ${DBUSER}
-      MYSQL_PASSWORD: ${DBPASS}
+      MYSQL_ROOT_PASSWORD: ${DBROOTPASS:-password}
+      MYSQL_DATABASE: ${DB:-wordpress}
+      MYSQL_USER: ${DBUSER:-wpuser}
+      MYSQL_PASSWORD: ${DBPASS:-wppassword}
     networks:
       - wp
 
@@ -23,9 +23,9 @@ services:
     volumes: ["./html:/var/www/html"]
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: ${DBUSER}
-      WORDPRESS_DB_PASSWORD: ${DBPASS}
-      WORDPRESS_DB_NAME: ${DB}
+      WORDPRESS_DB_USER: ${DBUSER:-wpuser}
+      WORDPRESS_DB_PASSWORD: ${DBPASS:-wppassword}
+      WORDPRESS_DB_NAME: ${DB:-wordpress}
     networks:
       - wp
 
